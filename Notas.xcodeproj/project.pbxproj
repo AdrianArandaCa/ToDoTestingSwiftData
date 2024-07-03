@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ACE6CC02C355A9E00E74A93 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE6CBF2C355A9E00E74A93 /* Mocks.swift */; };
 		3AE175A52C33A711006404B7 /* NotasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE175A42C33A711006404B7 /* NotasApp.swift */; };
 		3AE175A72C33A711006404B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE175A62C33A711006404B7 /* ContentView.swift */; };
 		3AE175AB2C33A712006404B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE175AA2C33A712006404B7 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3ACE6CBF2C355A9E00E74A93 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		3AE175A12C33A711006404B7 /* Notas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE175A42C33A711006404B7 /* NotasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasApp.swift; sourceTree = "<group>"; };
 		3AE175A62C33A711006404B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3ACE6CBE2C355A9300E74A93 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3ACE6CBF2C355A9E00E74A93 /* Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		3AE175982C33A711006404B7 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		3AE175C32C33B146006404B7 /* NotasTests */ = {
 			isa = PBXGroup;
 			children = (
+				3ACE6CBE2C355A9300E74A93 /* Mocks */,
 				3AE175C42C33B146006404B7 /* NoteTest.swift */,
 				3AE175D32C33C34C006404B7 /* ViewModelIntegrationTest.swift */,
 				3AE175CB2C33B69F006404B7 /* ViewModelTest.swift */,
@@ -275,6 +286,7 @@
 				3AE175CC2C33B69F006404B7 /* ViewModelTest.swift in Sources */,
 				3AE175C52C33B146006404B7 /* NoteTest.swift in Sources */,
 				3AE175D42C33C34C006404B7 /* ViewModelIntegrationTest.swift in Sources */,
+				3ACE6CC02C355A9E00E74A93 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

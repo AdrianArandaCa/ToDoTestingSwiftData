@@ -25,6 +25,4 @@ class Note: Identifiable, Hashable {
         self.text = text
         self.createdAt = createdAt
     }
-    
-    
 }

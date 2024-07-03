@@ -18,8 +18,8 @@ enum DatabaseError: Error {
 protocol NotesDatabaseProtocol {
     func fetchAll() throws -> [Note]
     func insert(note: Note) throws
-    func remove(note: Note) throws
-    func update(note: Note) throws
+    func remove(identifier: UUID) throws
+    func update(identifier: UUID, title: String, text: String?) throws
 }
 
 class NotesDatabase: NotesDatabaseProtocol {
@@ -54,17 +54,47 @@ class NotesDatabase: NotesDatabaseProtocol {
     }
     
     @MainActor
-    func update(note: Note) throws {
-        container.mainContext
+    func update(identifier: UUID, title: String, text: String?) throws {
+        let notePredicate = #Predicate<Note> {
+            $0.identifier == identifier
+        }
+        
+        var fetchDescriptor = FetchDescriptor<Note>(predicate: notePredicate)
+        fetchDescriptor.fetchLimit = 1
+        
+        do {
+            guard let updateNote = try container.mainContext.fetch(fetchDescriptor).first else {
+                throw DatabaseError.errorUpdate
+            }
+            
+            updateNote.title = title
+            updateNote.text = text
+            
+            try container.mainContext.save()
+        } catch {
+            print("Error actualizando información")
+            throw DatabaseError.errorUpdate
+        }
     }
     
     @MainActor
-    func remove(note: Note) throws {
-        container.mainContext.delete(note)
+    func remove(identifier: UUID) throws {
+        let notePredicate = #Predicate<Note> {
+            $0.identifier == identifier
+        }
+        
+        var fetchDescriptor = FetchDescriptor<Note>(predicate: notePredicate)
+        fetchDescriptor.fetchLimit = 1
+        
         do {
+            guard let deleteNote = try container.mainContext.fetch(fetchDescriptor).first else {
+                throw DatabaseError.errorRemove
+            }
+            
+            container.mainContext.delete(deleteNote)
             try container.mainContext.save()
         } catch {
-            print("Error \(error.localizedDescription)")
+            print("Error borrando información")
             throw DatabaseError.errorRemove
         }
     }

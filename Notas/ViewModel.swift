@@ -12,15 +12,15 @@ import Observation
 class ViewModel {
     var notes: [Note]
     
-    var createNoteUseCase: CreateNoteUseCase
-    var fetchAllNotesUseCase: FetchAllNotesUseCase
-    var updateNoteUseCase: UpdateNoteUseCase
-    var removeNoteUseCase: RemoveNoteUseCase
+    var createNoteUseCase: CreateNoteProtocol
+    var fetchAllNotesUseCase: FetchAllNotesProtocol
+    var updateNoteUseCase: UpdateNoteProtocol
+    var removeNoteUseCase: RemoveNoteProtocol
     
-    init(notes: [Note] = [], createNoteUseCase: CreateNoteUseCase = CreateNoteUseCase(),
-         fetchAllNotesUseCase: FetchAllNotesUseCase = FetchAllNotesUseCase(),
-         updateNoteUseCase: UpdateNoteUseCase = UpdateNoteUseCase(),
-         removeNoteUseCase: RemoveNoteUseCase = RemoveNoteUseCase()) {
+    init(notes: [Note] = [], createNoteUseCase: CreateNoteProtocol = CreateNoteUseCase(),
+         fetchAllNotesUseCase: FetchAllNotesProtocol = FetchAllNotesUseCase(),
+         updateNoteUseCase: UpdateNoteProtocol = UpdateNoteUseCase(),
+         removeNoteUseCase: RemoveNoteProtocol = RemoveNoteUseCase()) {
         self.notes = notes
         self.createNoteUseCase = createNoteUseCase
         self.fetchAllNotesUseCase = fetchAllNotesUseCase
@@ -47,18 +47,17 @@ class ViewModel {
     }
     
     func updateNote(identifier: UUID, newTitle: String, newText: String?) {
-        if let index = notes.firstIndex(where: { $0.identifier == identifier} ) {
-            let updateNote = Note(identifier: identifier, title: newTitle, text: newText, createdAt: notes[index].createdAt)
-            notes[index] = updateNote
+        do {
+            try updateNoteUseCase.updateNote(identifier: identifier, title: newTitle, text: newText)
+        } catch {
+            print("Error \(error.localizedDescription)")
         }
     }
     
     func removeNote(identifier: UUID) {
         do {
-            if let index = notes.firstIndex(where: { $0.identifier == identifier }) {
-                try removeNoteUseCase.removeNote(note: notes[index])
-                fetchAllNotes()
-            }
+            try removeNoteUseCase.removeNote(identifier: identifier)
+            fetchAllNotes()
         } catch {
             print("Error \(error.localizedDescription)")
         }

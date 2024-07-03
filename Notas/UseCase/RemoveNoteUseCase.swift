@@ -6,14 +6,18 @@
 //
 
 import Foundation
-struct RemoveNoteUseCase {
+protocol RemoveNoteProtocol {
+    func removeNote(identifier: UUID) throws
+}
+
+struct RemoveNoteUseCase: RemoveNoteProtocol {
     var notesDatabase: NotesDatabaseProtocol
     
     init(notesDatabase: NotesDatabaseProtocol = NotesDatabase.shared) {
         self.notesDatabase = notesDatabase
     }
     
-    func removeNote(note: Note) throws {
-        try notesDatabase.remove(note: note)
+    func removeNote(identifier: UUID) throws {
+        try notesDatabase.remove(identifier: identifier)
     }
 }

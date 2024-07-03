@@ -37,6 +37,7 @@ struct UpdateNoteView: View {
             ToolbarItem {
                 Button {
                     viewModel.updateNote(identifier: identifier, newTitle: title, newText: text)
+                    dismiss()
                 } label: {
                     Text("Guardar nota")
                 }

@@ -6,14 +6,19 @@
 //
 
 import Foundation
-struct UpdateNoteUseCase {
+
+protocol UpdateNoteProtocol {
+    func updateNote(identifier: UUID, title: String, text: String?) throws
+}
+
+struct UpdateNoteUseCase: UpdateNoteProtocol {
     var notesDatabase: NotesDatabaseProtocol
     
     init(notesDatabase: NotesDatabaseProtocol = NotesDatabase.shared) {
         self.notesDatabase = notesDatabase
     }
     
-    func createNote(note: Note) throws {
-        try notesDatabase.update(note: note)
+    func updateNote(identifier: UUID, title: String, text: String?) throws {
+        try notesDatabase.update(identifier: identifier, title: title, text: text)
     }
 }

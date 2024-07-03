@@ -9,15 +9,17 @@ import XCTest
 @testable import Notas
 
 final class ViewModelTest: XCTestCase {
-    
     var viewModel: ViewModel!
-
+    
     override func setUpWithError() throws {
-        viewModel = ViewModel()
+        viewModel = ViewModel(createNoteUseCase: CreateNoteUseCaseMock(),
+                              fetchAllNotesUseCase: FetchAllNotesUseCaseMock(),
+                              updateNoteUseCase: UpdateNoteUseCaseMock(),
+                              removeNoteUseCase: RemoveNoteUseCaseMock())
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mockDatabase = []
     }
     
     func testCreateNote() {
@@ -58,7 +60,7 @@ final class ViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.notes[2].text, text3)
     }
     
-    /*func testUpdateNote() {
+    func testUpdateNote() {
         //Given
         let title = "Test Title"
         let text = "Test Text"
@@ -92,5 +94,5 @@ final class ViewModelTest: XCTestCase {
         } else {
             XCTFail("No note was created.")
         }
-    }*/
+    }
 }
