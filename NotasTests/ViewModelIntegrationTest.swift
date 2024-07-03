@@ -94,6 +94,7 @@ final class ViewModelIntegrationTest: XCTestCase {
         //When
         if let note = sut.notes.first {
             sut.updateNote(identifier: note.identifier, newTitle: newTitle, newText: newText)
+            sut.fetchAllNotes()
             //Then
             XCTAssertEqual(sut.notes.count, 1)
             XCTAssertEqual(sut.notes.first?.title, newTitle)
