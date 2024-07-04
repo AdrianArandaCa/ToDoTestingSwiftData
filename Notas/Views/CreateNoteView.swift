@@ -18,7 +18,9 @@ struct CreateNoteView: View {
             Form {
                 Section {
                     TextField("", text: $title, prompt: Text("*Titulo"), axis: .vertical)
+                        .accessibilityIdentifier("createnote_title_identifier")
                     TextField("", text: $text, prompt: Text("*Texto"), axis: .vertical)
+                        .accessibilityIdentifier("createnote_text_identifier")
                 } footer: {
                     Text("* El titulo es obligatorio")
                 }

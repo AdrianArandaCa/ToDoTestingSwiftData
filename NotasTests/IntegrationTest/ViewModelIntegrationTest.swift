@@ -118,4 +118,14 @@ final class ViewModelIntegrationTest: XCTestCase {
             XCTFail("No note was created.")
         }
     }
+    
+    @MainActor
+    func testRemoveNoteInDatabaseShouldThrowError() {
+        sut.removeNote(identifier: UUID())
+        
+        XCTAssertEqual(sut.notes.count, 0)
+        XCTAssertNotNil(sut.databaseError)
+        XCTAssertEqual(sut.databaseError, DatabaseError.errorRemove)
+        
+    }
 }

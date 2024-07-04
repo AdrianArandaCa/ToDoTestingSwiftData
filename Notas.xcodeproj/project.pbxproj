@@ -24,10 +24,21 @@
 		3AE175D42C33C34C006404B7 /* ViewModelIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE175D32C33C34C006404B7 /* ViewModelIntegrationTest.swift */; };
 		3AE175D72C33C7FC006404B7 /* UpdateNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE175D62C33C7FC006404B7 /* UpdateNoteUseCase.swift */; };
 		3AE175D92C33C805006404B7 /* RemoveNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE175D82C33C805006404B7 /* RemoveNoteUseCase.swift */; };
+		3AE301BA2C367FAF005482A1 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE301B92C367FAF005482A1 /* InlineSnapshotTesting */; };
+		3AE301BC2C367FAF005482A1 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE301BB2C367FAF005482A1 /* SnapshotTesting */; };
+		3AE301BE2C367FE7005482A1 /* CreateNoteViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE301BD2C367FE7005482A1 /* CreateNoteViewSnapshotTest.swift */; };
+		3AE301C92C368739005482A1 /* NotasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE301C82C368739005482A1 /* NotasUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3AE175C62C33B146006404B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AE175992C33A711006404B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AE175A02C33A711006404B7;
+			remoteInfo = Notas;
+		};
+		3AE301CC2C368739005482A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AE175992C33A711006404B7 /* Project object */;
 			proxyType = 1;
@@ -56,6 +67,9 @@
 		3AE175D32C33C34C006404B7 /* ViewModelIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelIntegrationTest.swift; sourceTree = "<group>"; };
 		3AE175D62C33C7FC006404B7 /* UpdateNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteUseCase.swift; sourceTree = "<group>"; };
 		3AE175D82C33C805006404B7 /* RemoveNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteUseCase.swift; sourceTree = "<group>"; };
+		3AE301BD2C367FE7005482A1 /* CreateNoteViewSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewSnapshotTest.swift; sourceTree = "<group>"; };
+		3AE301C62C368739005482A1 /* NotasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE301C82C368739005482A1 /* NotasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3AE175BF2C33B146006404B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AE301BA2C367FAF005482A1 /* InlineSnapshotTesting in Frameworks */,
+				3AE301BC2C367FAF005482A1 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AE301C32C368739005482A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,6 +112,7 @@
 			children = (
 				3AE175A32C33A711006404B7 /* Notas */,
 				3AE175C32C33B146006404B7 /* NotasTests */,
+				3AE301C72C368739005482A1 /* NotasUITests */,
 				3AE175A22C33A711006404B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +122,7 @@
 			children = (
 				3AE175A12C33A711006404B7 /* Notas.app */,
 				3AE175C22C33B146006404B7 /* NotasTests.xctest */,
+				3AE301C62C368739005482A1 /* NotasUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,9 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				3ACE6CBE2C355A9300E74A93 /* Mocks */,
-				3AE175C42C33B146006404B7 /* NoteTest.swift */,
-				3AE175D32C33C34C006404B7 /* ViewModelIntegrationTest.swift */,
-				3AE175CB2C33B69F006404B7 /* ViewModelTest.swift */,
+				3AE301C02C368003005482A1 /* IntegrationTest */,
+				3AE301BF2C367FFA005482A1 /* Unit Test */,
+				3AE301C12C36800A005482A1 /* SnapshotTest */,
 			);
 			path = NotasTests;
 			sourceTree = "<group>";
@@ -163,6 +188,39 @@
 				3AE175D12C33BFD3006404B7 /* FetchAllNotesUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		3AE301BF2C367FFA005482A1 /* Unit Test */ = {
+			isa = PBXGroup;
+			children = (
+				3AE175C42C33B146006404B7 /* NoteTest.swift */,
+				3AE175CB2C33B69F006404B7 /* ViewModelTest.swift */,
+			);
+			path = "Unit Test";
+			sourceTree = "<group>";
+		};
+		3AE301C02C368003005482A1 /* IntegrationTest */ = {
+			isa = PBXGroup;
+			children = (
+				3AE175D32C33C34C006404B7 /* ViewModelIntegrationTest.swift */,
+			);
+			path = IntegrationTest;
+			sourceTree = "<group>";
+		};
+		3AE301C12C36800A005482A1 /* SnapshotTest */ = {
+			isa = PBXGroup;
+			children = (
+				3AE301BD2C367FE7005482A1 /* CreateNoteViewSnapshotTest.swift */,
+			);
+			path = SnapshotTest;
+			sourceTree = "<group>";
+		};
+		3AE301C72C368739005482A1 /* NotasUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3AE301C82C368739005482A1 /* NotasUITests.swift */,
+			);
+			path = NotasUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +257,31 @@
 				3AE175C72C33B146006404B7 /* PBXTargetDependency */,
 			);
 			name = NotasTests;
+			packageProductDependencies = (
+				3AE301B92C367FAF005482A1 /* InlineSnapshotTesting */,
+				3AE301BB2C367FAF005482A1 /* SnapshotTesting */,
+			);
 			productName = NotasTests;
 			productReference = 3AE175C22C33B146006404B7 /* NotasTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3AE301C52C368739005482A1 /* NotasUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AE301CE2C368739005482A1 /* Build configuration list for PBXNativeTarget "NotasUITests" */;
+			buildPhases = (
+				3AE301C22C368739005482A1 /* Sources */,
+				3AE301C32C368739005482A1 /* Frameworks */,
+				3AE301C42C368739005482A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AE301CD2C368739005482A1 /* PBXTargetDependency */,
+			);
+			name = NotasUITests;
+			productName = NotasUITests;
+			productReference = 3AE301C62C368739005482A1 /* NotasUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -220,6 +300,10 @@
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 3AE175A02C33A711006404B7;
 					};
+					3AE301C52C368739005482A1 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 3AE175A02C33A711006404B7;
+					};
 				};
 			};
 			buildConfigurationList = 3AE1759C2C33A711006404B7 /* Build configuration list for PBXProject "Notas" */;
@@ -231,12 +315,16 @@
 				Base,
 			);
 			mainGroup = 3AE175982C33A711006404B7;
+			packageReferences = (
+				3AE301B82C367FAF005482A1 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 3AE175A22C33A711006404B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3AE175A02C33A711006404B7 /* Notas */,
 				3AE175C12C33B146006404B7 /* NotasTests */,
+				3AE301C52C368739005482A1 /* NotasUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +340,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3AE175C02C33B146006404B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AE301C42C368739005482A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,10 +378,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE301BE2C367FE7005482A1 /* CreateNoteViewSnapshotTest.swift in Sources */,
 				3AE175CC2C33B69F006404B7 /* ViewModelTest.swift in Sources */,
 				3AE175C52C33B146006404B7 /* NoteTest.swift in Sources */,
 				3AE175D42C33C34C006404B7 /* ViewModelIntegrationTest.swift in Sources */,
 				3ACE6CC02C355A9E00E74A93 /* Mocks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AE301C22C368739005482A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AE301C92C368739005482A1 /* NotasUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +401,11 @@
 			isa = PBXTargetDependency;
 			target = 3AE175A02C33A711006404B7 /* Notas */;
 			targetProxy = 3AE175C62C33B146006404B7 /* PBXContainerItemProxy */;
+		};
+		3AE301CD2C368739005482A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AE175A02C33A711006404B7 /* Notas */;
+			targetProxy = 3AE301CC2C368739005482A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -514,6 +623,40 @@
 			};
 			name = Release;
 		};
+		3AE301CF2C368739005482A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6D7K8WYW6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianaranda.NotasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notas;
+			};
+			name = Debug;
+		};
+		3AE301D02C368739005482A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6D7K8WYW6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianaranda.NotasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notas;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,7 +687,40 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3AE301CE2C368739005482A1 /* Build configuration list for PBXNativeTarget "NotasUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AE301CF2C368739005482A1 /* Debug */,
+				3AE301D02C368739005482A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AE301B82C367FAF005482A1 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AE301B92C367FAF005482A1 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE301B82C367FAF005482A1 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		3AE301BB2C367FAF005482A1 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE301B82C367FAF005482A1 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3AE175992C33A711006404B7 /* Project object */;
 }

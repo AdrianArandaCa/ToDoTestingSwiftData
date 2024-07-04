@@ -49,6 +49,6 @@ struct UpdateNoteView: View {
 
 #Preview {
     NavigationStack {
-        UpdateNoteView(viewModel: .init(), identifier: .init(), title: "Suscribete a SwiftBeta", text: "Aprende")
+        UpdateNoteView(viewModel: .init(), identifier: .init(), title: "Titulo modificado", text: "Texto modificado")
     }
 }
